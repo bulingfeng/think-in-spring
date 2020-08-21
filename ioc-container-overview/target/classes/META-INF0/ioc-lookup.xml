@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="person" class="com.bulingfeng.ioc.container.overview.entity.Person">
+        <property name="name" value="bulingfeng"></property>
+        <property name="age" value="18"></property>
+    </bean>
+    <bean id="superPerson" class="com.bulingfeng.ioc.container.overview.entity.SuperPerson" parent="person" primary="true">
+        <property name="address" value="beijing"></property>
+    </bean>
+    <!-- 测试按照类型查找-->
+<!--    <bean id="person1" class="com.bulingfeng.ioc.container.overview.entity.Person">-->
+<!--        <property name="name" value="bulingfeng"></property>-->
+<!--        <property name="age" value="18"></property>-->
+<!--    </bean>-->
+    <bean id="objectFactoryCreatingFactoryBean" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
+        <property name="targetBeanName" value="person"></property>
+    </bean>
+</beans>
