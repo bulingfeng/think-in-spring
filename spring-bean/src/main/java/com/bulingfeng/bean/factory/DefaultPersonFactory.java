@@ -43,4 +43,9 @@ public class DefaultPersonFactory implements PersonFactory, InitializingBean, Di
     public void doDestroy(){
         System.out.println("使用 自定义方式 销毁对象 DefaultPersonFactory..... ");
     }
+
+    @Override
+    public void finalize() throws Throwable {
+        System.out.println("DefaultPersonFactory 正在被回收.......");
+    }
 }
